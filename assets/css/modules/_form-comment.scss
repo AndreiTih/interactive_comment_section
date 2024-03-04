@@ -1,0 +1,44 @@
+.form-comment
+{
+    width: 100%;
+    height: 200px;
+    margin-top:20px;
+    box-sizing:border-box;
+    padding:18px;
+
+    background-color:white;
+    border-radius:10px;
+}
+.form-comment-container
+{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    justify-content:space-between;
+
+    width:100%;
+    height:100%;
+
+}
+
+.form-comment-container > .text-input
+{
+    width:100%;
+    height:60%;
+
+    border: 1px $light-gray solid;
+    border-radius:10px;
+}
+
+.form-comment-container > .send-button
+{
+    width:100px;
+    height:50px;
+
+    border-radius:10px;
+    background-color:$moderate-blue;
+
+    @include rubik(400);
+    font-size:1em;
+    color:white;
+}

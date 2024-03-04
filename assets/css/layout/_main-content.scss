@@ -1,0 +1,18 @@
+#main-content
+{
+    display:flex;
+}
+
+
+//States
+
+//Media
+
+@media (min-width: 375px) {
+
+    #main-content
+    {
+        padding-left:10vw;
+        padding-right:10vw;
+    }
+}

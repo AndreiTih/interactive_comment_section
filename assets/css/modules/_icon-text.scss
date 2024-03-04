@@ -1,0 +1,67 @@
+
+/*
+Class that represents the little icon and text such as:
+the reply or delete or edit buttons. Meant to be inherited by those
+to make tiny adjustments to alignments and such.
+
+ */
+.icon-text
+{
+    display:flex;
+    width:100%;
+}
+.icon-text > .icon-container
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:50%;
+    height:100%;
+}
+
+.icon-text > .icon-container > img
+{
+    width: 14px;
+    height: 14px;
+}
+
+
+.icon-text > .text
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:50%;
+    height:100%;
+
+    @include rubik(600);
+    color:$moderate-blue;
+}
+
+
+/* Subclass of .icon-text. Represents the reply button*/
+
+.icon-text-reply > .icon-container
+{
+    padding-top:1px;
+}
+
+
+/*Subclass of icon-text, represents the delete button*/
+.icon-text-delete
+{
+    width:50%;
+}
+
+/*Subclass of icon-text, represents the edit button*/
+.icon-text-edit
+{
+    width:50%;
+}
+.icon-text-edit > .icon-container > img
+{
+    padding-left:12px;
+}
+

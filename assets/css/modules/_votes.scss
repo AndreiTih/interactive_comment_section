@@ -1,0 +1,73 @@
+
+.votes
+{
+    display:flex;
+    flex-direction:row;
+
+    align-items:center;
+    width:100px;
+    height:40px;
+
+    margin-top:20px;
+
+    background-color:$very-light-gray;
+    border-radius:10px;
+}
+
+.votes > .plus, .votes > .minus
+{
+    flex: 1 1 0;
+    padding:15px;
+}
+// the plus and minus images are not centered in the image asset itself
+// which makes this adjustment necessary, but normally they'd be centered
+.votes > .minus
+{
+    padding-bottom:20px;
+}
+.votes > .plus
+{
+    padding-top:18px;
+}
+
+.plus > img, .minus > img
+{
+    width : 100%;
+}
+.votes > .score
+{
+    flex: 1 1 0;
+    text-align:center;
+    @include rubik(700);
+    color:$moderate-blue;
+}
+
+
+//States
+
+//Media
+
+@media (min-width:850px) {
+    .votes
+    {
+        flex-direction:column;
+        order:-1;
+        width:40px;
+        height:100px;
+
+        margin-top:17px;
+        margin-right:20px;
+
+    }
+    .votes > .plus, .votes > .minus
+    {
+        flex: 1 1 0;
+        padding:0px;
+    }
+    .votes > .plus
+    {
+        padding-top:10px;
+    }
+    
+}
+

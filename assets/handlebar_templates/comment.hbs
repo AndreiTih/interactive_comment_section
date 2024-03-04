@@ -1,0 +1,36 @@
+{{!--
+Parameters:
+comment_subclass: Type of comment, can either be comment-other or comment-yours
+contents: The actual message inside the comment
+username: Name of user
+date: When the comment happened. Expected to come in a format such as: '1 day ago' or '2 days ago', or '2 minutes ago'.
+
+--}}
+<div class="comment {{comment_subclass}}">
+    <div class="comment-main-container">
+        <div class="name-date-text-container">
+            <div class="name-date">
+                <p class="name">{{username}}</p>
+                <p class="date">{{date}}</p>
+            </div>
+            <p> {{contents}}
+            </p>
+
+        </div>
+        <div class="votes">
+            <div class="plus"><img src="assets/images/icon-plus.svg"></div>
+            <div class = "score">5</div>
+            <div class="minus"> <img src="assets/images/icon-minus.svg"></div>
+        </div>
+
+        <div class="interaction-container">
+            <div class="icon-text icon-text-reply">
+                <div class="icon-container"><img src="assets/images/icon-reply.svg"></div>
+                <div class="text">Reply</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

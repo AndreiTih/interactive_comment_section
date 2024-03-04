@@ -1,0 +1,121 @@
+.comment
+{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    max-width:730px;
+    background-color:white;
+    border-radius:10px;
+
+    margin-bottom:15px;
+}
+
+
+$comment-main-container-padding:18px;
+.comment-main-container
+{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative; // for the interaction component
+    
+    box-sizing:border-box;
+    width:100%;
+    height:100%;
+    padding:$comment-main-container-padding;
+
+}
+
+.name-date-text-container
+{
+    display:block;
+    box-sizing:border-box;
+    width:100%;
+    height:70%;
+    //border: 1px black solid; //temporary
+}
+
+.name-date
+{
+    display:flex;
+    align-items:center;
+
+    width:100%;
+    height:50px;
+    //border: 1px black solid; //temporary
+}
+
+.name-date > .date
+{
+    padding-left:10px;
+
+    @include rubik(400);
+    color:$dark-blue;
+    font-size:1em;
+}
+
+.name-date-text-container > p
+{
+    min-height:2em;
+    @include rubik(400);
+    color:$grayish-blue;
+    line-height:1.4em;
+}
+
+/*
+ This container will hold the modules that allows you to interact
+ with this comment. 
+ The .comment class is meant to be inherited by a .comment-yours or .comment-other class
+ If it's someone else's comment, it'll hold a reply button in the DOM.
+ If it's your own comment, it'll hold a delete and edit button in the DOM.
+ */
+
+.interaction-container
+{
+    max-width: 140px;
+    height:40px;
+    position:absolute;
+    bottom:$comment-main-container-padding;
+    right:$comment-main-container-padding;
+
+}
+
+//States:
+
+//Media:
+
+@media (min-width: 850px)
+{
+    .interaction-container
+    {
+        top : $comment-main-container-padding + 5px;
+        right:$comment-main-container-padding;
+    }
+    .comment-main-container
+    {
+        flex-direction:row;
+    }
+}
+
+
+
+/*
+ * .comment-other subclass of .comment
+ */
+
+.comment-other .interaction-container
+{
+    display:flex;
+    width:70px;
+}
+
+
+/*
+ * .comment-yours subclass of .comment
+ */
+
+.comment-yours .interaction-container
+{
+    display:flex;
+    width:140px;
+}

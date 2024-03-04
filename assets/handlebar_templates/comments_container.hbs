@@ -1,0 +1,20 @@
+
+{{!--
+Parameters:
+comment: List of comment components. Each is a string obtained from a rendered handlebar template.
+--}}
+<section class="comments-container">
+    {{#each comment}}
+        {{{this}}}
+    {{/each}}
+
+    {{!--Should probably be its own themplate--}}
+    <div class="form-comment">
+        <div class="form-comment-container">
+            <input type=text class="text-input"></input>
+            <button class="send-button"> SEND </button>
+        </div>
+
+    </div>
+
+</section>

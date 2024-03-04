@@ -1,0 +1,255 @@
+/*## Colors*/
+/*### Primary*/
+/*### Neutral*/
+/* Family: [Rubik](https://fonts.google.com/specimen/Rubik) */
+* {
+  margin: 0px;
+  padding: 0px; }
+
+p, h1, h2 {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal; }
+
+body {
+  background-color: #f5f6fa; }
+
+button {
+  border-width: 0; }
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 730px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 15px; }
+
+.comment-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 18px; }
+
+.name-date-text-container {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 70%; }
+
+.name-date {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px; }
+
+.name-date > .date {
+  padding-left: 10px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #324152;
+  font-size: 1em; }
+
+.name-date-text-container > p {
+  min-height: 2em;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #67727e;
+  line-height: 1.4em; }
+
+/*
+ This container will hold the modules that allows you to interact
+ with this comment. 
+ The .comment class is meant to be inherited by a .comment-yours or .comment-other class
+ If it's someone else's comment, it'll hold a reply button in the DOM.
+ If it's your own comment, it'll hold a delete and edit button in the DOM.
+ */
+.interaction-container {
+  max-width: 140px;
+  height: 40px;
+  position: absolute;
+  bottom: 18px;
+  right: 18px; }
+
+@media (min-width: 850px) {
+  .interaction-container {
+    top: 23px;
+    right: 18px; }
+
+  .comment-main-container {
+    flex-direction: row; } }
+/*
+ * .comment-other subclass of .comment
+ */
+.comment-other .interaction-container {
+  display: flex;
+  width: 70px; }
+
+/*
+ * .comment-yours subclass of .comment
+ */
+.comment-yours .interaction-container {
+  display: flex;
+  width: 140px; }
+
+.form-comment {
+  width: 100%;
+  height: 200px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  padding: 18px;
+  background-color: white;
+  border-radius: 10px; }
+
+.form-comment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%; }
+
+.form-comment-container > .text-input {
+  width: 100%;
+  height: 60%;
+  border: 1px #eaecf1 solid;
+  border-radius: 10px; }
+
+.form-comment-container > .send-button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #5457b6;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  color: white; }
+
+.votes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  margin-top: 20px;
+  background-color: #f5f6fa;
+  border-radius: 10px; }
+
+.votes > .plus, .votes > .minus {
+  flex: 1 1 0;
+  padding: 15px; }
+
+.votes > .minus {
+  padding-bottom: 20px; }
+
+.votes > .plus {
+  padding-top: 18px; }
+
+.plus > img, .minus > img {
+  width: 100%; }
+
+.votes > .score {
+  flex: 1 1 0;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  color: #5457b6; }
+
+@media (min-width: 850px) {
+  .votes {
+    flex-direction: column;
+    order: -1;
+    width: 40px;
+    height: 100px;
+    margin-top: 17px;
+    margin-right: 20px; }
+
+  .votes > .plus, .votes > .minus {
+    flex: 1 1 0;
+    padding: 0px; }
+
+  .votes > .plus {
+    padding-top: 10px; } }
+/*
+Class that represents the little icon and text such as:
+the reply or delete or edit buttons. Meant to be inherited by those
+to make tiny adjustments to alignments and such.
+
+ */
+.icon-text {
+  display: flex;
+  width: 100%; }
+
+.icon-text > .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%; }
+
+.icon-text > .icon-container > img {
+  width: 14px;
+  height: 14px; }
+
+.icon-text > .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: #5457b6; }
+
+/* Subclass of .icon-text. Represents the reply button*/
+.icon-text-reply > .icon-container {
+  padding-top: 1px; }
+
+/*Subclass of icon-text, represents the delete button*/
+.icon-text-delete {
+  width: 50%; }
+
+/*Subclass of icon-text, represents the edit button*/
+.icon-text-edit {
+  width: 50%; }
+
+.icon-text-edit > .icon-container > img {
+  padding-left: 12px; }
+
+.comments-container {
+  display: block; }
+
+@media (max-width: 375px) {
+  .comments-container {
+    width: 345px;
+    margin-left: auto;
+    margin-right: auto; } }
+@media (min-width: 376px) {
+  .comments-container {
+    min-width: 345px;
+    width: 60%; } }
+#main-content {
+  display: flex; }
+
+@media (min-width: 375px) {
+  #main-content {
+    padding-left: 10vw;
+    padding-right: 10vw; } }
+
+/*# sourceMappingURL=style.css.map */

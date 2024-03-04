@@ -1,0 +1,21 @@
+
+*
+{
+    margin:0px;
+    padding:0px;
+}
+
+p , h1, h2
+{
+    @include rubik(500);
+}
+
+body
+{
+    background-color:$very-light-gray;
+}
+
+button
+{
+    border-width:0;
+}
