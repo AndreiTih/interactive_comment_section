@@ -9,10 +9,9 @@ const querystring = require('querystring');
 
 import model from './src/model.mjs';
 import renderer from './src/html_template_rendering.mjs';
-import { parse } from 'node:path';
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const hostname = '0.0.0.0';
+const port = 80;
 
 
 // Returns a string representing the rendered html of all comments in the Comments table for a user.
@@ -25,17 +24,11 @@ reply_username : Optional string that represents the username of the user this c
 async function renderAllCommentsForUser(username)
 {
     try{
-        //TODO: Maybe make this return them in chronological order
         let comment_array = await model.getAllComments(); 
-        // Iterate through all comments an create a list of
-        //TODO: Change this bit to be comment-other or comment-yours based on whether you're logged in.
-        //TODO: Add some enumerator somewhere for comment-other and comment-yours
-        //TODO: Change 2 hours ago to a conversion from the timestamp to this type of string.
         let html_comment_array = [];
         for(let i in comment_array)
         {
             //TODO: Should use something like Promise.all here. It's unnecessary to await for each individual comment to get rendered.
-
             const reply_username = (comment_array[i].ReplyID == null) ? null : await model.getUsernameWithID(comment_array[i].ReplyID);
 
             html_comment_array.push(await renderer.renderComment(
@@ -80,7 +73,6 @@ async function handleRootUrl(req,res)
         const cookies = utils.parseCookies(req.headers.cookie);
 
         const html_page = await renderAllCommentsForUser(cookies.username);
-
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.end(html_page);
     }
@@ -114,10 +106,9 @@ async function handleEditComment(req,res)
     req.on('end', async function(){
         const parsed_data = querystring.parse(body);
 
-        console.log("edited comment_id" + parsed_data.edited_comment_id);
         await model.editComment(parsed_data.edited_comment_id , parsed_data.comment_content);
-        const rendered_html_page = await renderAllCommentsForUser(cookies.username);
 
+        const rendered_html_page = await renderAllCommentsForUser(cookies.username);
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(rendered_html_page, 'utf-8');
     });

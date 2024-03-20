@@ -51,7 +51,6 @@ const model =
 
                 connection.release();
 
-                console.log("username with id: " + rows[0].Username);
                 return rows[0].Username;
             } catch (error) {
                 console.error('Error getting comments:', error);
@@ -234,8 +233,8 @@ async function createAllTablesIfNotExists()
                 Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 ReplyID INT,
                 PRIMARY KEY (ID),
-                FOREIGN KEY (Username) REFERENCES Users(Username),
-                FOREIGN KEY (ReplyID) REFERENCES Comments(ID)
+                FOREIGN KEY (Username) REFERENCES interactive_comments.Users(Username),
+                FOREIGN KEY (ReplyID) REFERENCES interactive_comments.Comments(ID)
             );`;
     try {
         const connection = await pool.getConnection();
@@ -261,25 +260,25 @@ async function populateCommentsTableIfEmpty()
         console.log("The Comments table is already populated, skipping the populateCommentsTableIfEmpty step ...")
         return;
     }
+    await model.insertUser('amyrobson');
+    await model.insertUser('Andrei');
+    await model.insertUser('Alberto');
+    await model.insertUser('Gil');
 
     model.insertComment('amyrobson',
         `Impressive! Though it seems the drag feature could be improved. But overall it
         looks incredible. You've nailed the design and the responsiveness at various
-        breakpoints works really well.`,
-        'amyrobson');
+        breakpoints works really well.`);
     model.insertComment('Andrei',
         `Woah, your project looks awesome! How long have you been coding for? I'm still new,
         but I think I want to dive into React as well soon. Prehaps you can give me an insight
-        on where I can learn React? Thanks!`,
-        'maxblagun');
+        on where I can learn React? Thanks!`);
     model.insertComment('Alberto',
-        `@maxblagun if you're still new, I'd recommend focusing on the fundamentals of HTML, CSS and
-        JS before considering React. It's very tempting to jump ahead but lay a foundation first.`,
-        'Alberto');
+        `If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS and
+        JS before considering React. It's very tempting to jump ahead but lay a foundation first.`);
     model.insertComment('Gil',
-        `@ramsesmiron I couldn't agree more with this. Everything moves so fast and it always seems like
-        everyone knows the newest library/framework. But the fundamentals are what stay constant.`,
-    );
+        `I couldn't agree more with this. Everything moves so fast and it always seems like
+        everyone knows the newest library/framework. But the fundamentals are what stay constant.`);
 }
 
 initDatabase();
