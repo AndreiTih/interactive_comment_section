@@ -1,0 +1,46 @@
+
+{{!--
+Parameters:
+id: id of the comment in the database. Useful when sending requests from the client back to the server that reference a comment.
+contents: The actual message inside the comment
+username: Name of user
+date: When the comment happened. Expected to come in a format such as: '1 day ago' or '2 days ago', or '2 minutes ago'.
+reply_username: Optional: Name of the user this comment is replying to.
+
+--}}
+<div class="comment comment-yours" data-id="{{id}}">
+    <div class="comment-main-container">
+        <div class="name-date-text-container">
+            <div class="name-date">
+                <p class="name">{{username}}</p>
+                <div class="ownership-label">you</div>
+                <p class="date">{{date}}</p>
+            </div>
+            <p>
+            {{#if reply_username}}
+            <span class="reply-span">@{{reply_username}}</span> 
+            {{/if}}
+            {{contents}}
+            </p>
+
+        </div>
+        <div class="votes">
+            <div class="plus"><img src="assets/images/icon-plus.svg"></div>
+            <div class = "score">5</div>
+            <div class="minus"> <img src="assets/images/icon-minus.svg"></div>
+        </div>
+
+        <div class="interaction-container">
+            <div class="icon-text icon-text-delete">
+                <div class="icon-container"><img src="assets/images/icon-delete.svg"></div>
+                <div class="text">Delete</div>
+            </div>
+            <div class="icon-text icon-text-edit">
+                <div class="icon-container"><img src="assets/images/icon-edit.svg"></div>
+                <div class="text">Edit</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

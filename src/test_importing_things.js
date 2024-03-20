@@ -1,6 +1,3 @@
-
-
-
 import model from './model.mjs';
 
 

@@ -1,0 +1,12 @@
+.login-status-banner
+{
+    position:sticky;
+    top:0px;
+
+    background-color: $light-gray;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    text-align:center;
+
+    font-size:1em;
+}

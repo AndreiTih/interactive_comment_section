@@ -1,25 +1,31 @@
 {{!--
 Parameters:
+id: Id of the comment in the database. Useful when referencing a comment in a request from the client.
 comment_subclass: Type of comment, can either be comment-other or comment-yours
 contents: The actual message inside the comment
 username: Name of user
 date: When the comment happened. Expected to come in a format such as: '1 day ago' or '2 days ago', or '2 minutes ago'.
+reply_username: Optional: Name of the user this comment is replying to.
 
 --}}
-<div class="comment {{comment_subclass}}">
+<div class="comment comment-other" data-id={{id}}>
     <div class="comment-main-container">
         <div class="name-date-text-container">
             <div class="name-date">
                 <p class="name">{{username}}</p>
                 <p class="date">{{date}}</p>
             </div>
-            <p> {{contents}}
+            <p>
+            {{#if reply_username}}
+            <span class="reply-span">@{{reply_username}}</span> 
+            {{/if}}
+            {{contents}}
             </p>
 
         </div>
         <div class="votes">
             <div class="plus"><img src="assets/images/icon-plus.svg"></div>
-            <div class = "score">5</div>
+            <div class="score">5</div>
             <div class="minus"> <img src="assets/images/icon-minus.svg"></div>
         </div>
 

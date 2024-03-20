@@ -8,13 +8,9 @@ comment: List of comment components. Each is a string obtained from a rendered h
         {{{this}}}
     {{/each}}
 
-    {{!--Should probably be its own themplate--}}
-    <div class="form-comment">
-        <div class="form-comment-container">
-            <input type=text class="text-input"></input>
-            <button class="send-button"> SEND </button>
-        </div>
-
-    </div>
-
+    {{!--Should probably be its own template--}}
+    <form method="POST" action="/send-comment" class="form-comment">
+        <textarea name= "comment_content" type=text class="text-input" placeholder="Add a comment..."></textarea>
+        <button type= "submit" class="send-button"> SEND </button>
+    </form>
 </section>

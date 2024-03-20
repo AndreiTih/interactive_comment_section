@@ -15,6 +15,10 @@ $light-gray: hsl(223, 19%, 93%);
 $very-light-gray: hsl(228, 33%, 97%);
 $white: hsl(0, 0%, 100%);
 
+/* Github colors*/
+$github-dark: #24292e;
+$github-light: #fafbfc;
+
 /* Family: [Rubik](https://fonts.google.com/specimen/Rubik) */
 @mixin rubik($weight)
 {

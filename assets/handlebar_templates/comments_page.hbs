@@ -1,35 +1,51 @@
 {{!--
 Parameters:
 comments_container: String represting the rendered out comments_container component
+username: String representing the user's username
 --}}
-
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="stylesheet" href="style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+        <link rel="stylesheet" href="style.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-  
-  <title>Interactive comments section</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+        <script src="assets/js/my_script.js"></script>
 
-    <div id="main-content">
-        {{{comments_container}}}
-    </div>
 
-</body>
+        <title>Interactive comments section</title>
+
+    </head>
+    <body>
+        <div id="content" class="{{#if username}}is-logged-in{{else}}is-not-logged-in{{/if}}">
+            <div id="main-content">
+                <div class="login-status-banner">Logged in as: <span>{{username}}</span></div>
+                {{{comments_container}}}
+            </div>
+
+            <div id ="aside-content">
+                <div class="notes">
+                    <div class="notes-banner">
+                        <button class="github-button">GitHub</button>
+                    </div>
+                    <ul>
+                        <li>Little note</li>
+                    </ul>
+                </div>
+                <form method="POST" action="/login" class="form-login">
+                    <input name= "username" type=text class="username-input" placeholder="Username"></input>
+                    <button type= "button" class="logout-button"> Log out </button>
+                    <button type= "submit" class="login-button"> Log in </button>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
+

@@ -6,21 +6,5 @@
 
 
 
-@media (max-width: 375px) {
-    .comments-container
-    {
-        width:345px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-}
-@media (min-width: 376px)
-{
-    .comments-container
-    {
-        min-width: 345px;
-        width:60%;
-    }
-}
 
 

@@ -1,22 +1,51 @@
 /*## Colors*/
 /*### Primary*/
 /*### Neutral*/
+/* Github colors*/
 /* Family: [Rubik](https://fonts.google.com/specimen/Rubik) */
 * {
   margin: 0px;
   padding: 0px; }
 
-p, h1, h2 {
+p, h1, h2, textarea, li {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal; }
+
+ul {
+  padding-left: 40px; }
 
 body {
   background-color: #f5f6fa; }
 
 button {
-  border-width: 0; }
+  border-width: 0;
+  cursor: pointer; }
+
+textarea, input {
+  color: #67727e;
+  font-size: 1em; }
+
+textarea {
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-top: 10px;
+  resize: none; }
+
+input {
+  box-sizing: border-box;
+  padding-left: 10px; }
+
+textarea:focus, input:focus {
+  outline: none !important;
+  border-color: #324152 !important; }
+
+button:hover {
+  opacity: 0.5; }
+
+.is-not-logged-in .login-status-banner {
+  display: none; }
 
 .comment {
   display: flex;
@@ -67,6 +96,13 @@ button {
   color: #67727e;
   line-height: 1.4em; }
 
+.comment .reply-span {
+  color: #5457b6;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal; }
+
 /*
  This container will hold the modules that allows you to interact
  with this comment. 
@@ -102,7 +138,27 @@ button {
   display: flex;
   width: 140px; }
 
+.comment-yours .ownership-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 15px;
+  margin-left: 5px;
+  background-color: #5457b6;
+  border-radius: 3px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  font-size: 0.65em; }
+
 .form-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
   width: 100%;
   height: 200px;
   max-width: 730px;
@@ -112,21 +168,23 @@ button {
   background-color: white;
   border-radius: 10px; }
 
-.form-comment-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%; }
-
-.form-comment-container > .text-input {
+.form-comment > .text-input {
   width: 100%;
   height: 60%;
+  position: relative;
   border: 1px #eaecf1 solid;
   border-radius: 10px; }
 
-.form-comment-container > .send-button {
+.form-comment > .text-input::placeholder {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; }
+
+.form-comment > .send-button {
   width: 100px;
   height: 50px;
   border-radius: 10px;
@@ -137,6 +195,9 @@ button {
   font-style: normal;
   font-size: 1em;
   color: white; }
+
+.form-comment-reply {
+  margin-bottom: 10px; }
 
 .votes {
   display: flex;
@@ -193,7 +254,8 @@ to make tiny adjustments to alignments and such.
  */
 .icon-text {
   display: flex;
-  width: 100%; }
+  width: 100%;
+  cursor: pointer; }
 
 .icon-text > .icon-container {
   display: flex;
@@ -218,6 +280,9 @@ to make tiny adjustments to alignments and such.
   font-style: normal;
   color: #5457b6; }
 
+.icon-text:hover {
+  opacity: 0.5; }
+
 /* Subclass of .icon-text. Represents the reply button*/
 .icon-text-reply > .icon-container {
   padding-top: 1px; }
@@ -233,24 +298,115 @@ to make tiny adjustments to alignments and such.
 .icon-text-edit > .icon-container > img {
   padding-left: 12px; }
 
+.form-login {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 200px;
+  max-width: 730px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  padding: 18px;
+  background-color: white;
+  border-radius: 10px; }
+
+.form-login > .username-input {
+  width: 100%;
+  height: 37px;
+  border: 1px #eaecf1 solid;
+  border-radius: 10px; }
+
+.form-login > .username-input::placeholder {
+  padding-left: 10px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; }
+
+.form-login > .login-button, .form-login > .logout-button {
+  align-self: flex-end;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #5457b6;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  color: white; }
+
+@media (max-width: 500px) {
+  .form-login {
+    min-height: 150px; } }
+.login-status-banner {
+  position: sticky;
+  top: 0px;
+  background-color: #eaecf1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  font-size: 1em; }
+
+.notes {
+  background-color: white;
+  height: 100%;
+  max-height: 800px;
+  border-radius: 10px; }
+
+.notes-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafbfc;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  height: 40px; }
+
+.notes .github-button {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1em;
+  color: #24292e;
+  background-color: #fafbfc; }
+
 .comments-container {
   display: block; }
 
-@media (max-width: 375px) {
-  .comments-container {
-    width: 345px;
-    margin-left: auto;
-    margin-right: auto; } }
+#main-content {
+  max-width: 730px; }
+
 @media (min-width: 376px) {
-  .comments-container {
+  #main-content {
     min-width: 345px;
     width: 60%; } }
-#main-content {
-  display: flex; }
-
-@media (min-width: 375px) {
+@media (max-width: 375px) {
   #main-content {
-    padding-left: 10vw;
-    padding-right: 10vw; } }
+    min-width: 345px;
+    margin-left: auto;
+    margin-right: auto; } }
+#aside-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+  max-width: 500px;
+  margin-left: 20px; }
+
+@media (max-width: 500px) {
+  #aside-content {
+    display: none; } }
+#content {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  max-width: 1080px;
+  margin: auto;
+  margin-top: 10vh; }
 
 /*# sourceMappingURL=style.css.map */

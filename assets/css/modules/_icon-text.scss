@@ -9,6 +9,7 @@ to make tiny adjustments to alignments and such.
 {
     display:flex;
     width:100%;
+    cursor:pointer;
 }
 .icon-text > .icon-container
 {
@@ -38,6 +39,13 @@ to make tiny adjustments to alignments and such.
 
     @include rubik(600);
     color:$moderate-blue;
+}
+
+//States:
+
+.icon-text:hover
+{
+    opacity:0.5;
 }
 
 

@@ -62,6 +62,13 @@ $comment-main-container-padding:18px;
     line-height:1.4em;
 }
 
+.comment .reply-span
+{
+    color:$moderate-blue;
+    @include rubik(500);
+
+}
+
 /*
  This container will hold the modules that allows you to interact
  with this comment. 
@@ -118,4 +125,21 @@ $comment-main-container-padding:18px;
 {
     display:flex;
     width:140px;
+}
+
+.comment-yours .ownership-label
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:30px;
+    height:15px;
+    margin-left:5px;
+
+    background-color:$moderate-blue;
+    border-radius: 3px;
+
+    @include rubik(400);
+    color:white;
+    font-size:0.65em;
 }

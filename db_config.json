@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "qweasd123",
+    "database": "interactive_comments",
+    "port": "3306"
+}

@@ -1,0 +1,27 @@
+#aside-content
+{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    width:40%;
+    max-width:500px;
+    margin-left:20px;
+
+}
+
+
+
+// States
+// Media:
+
+// Invisible on mobile
+@media (max-width: 500px)
+{
+    #aside-content
+    {
+        display:none;
+
+    }
+
+}

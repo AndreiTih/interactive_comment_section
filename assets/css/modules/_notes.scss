@@ -1,0 +1,29 @@
+.notes
+{
+    background-color:white;
+    height:100%;
+    max-height:800px;
+
+    border-radius:10px;
+}
+
+.notes-banner
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:$github-light;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    width:100%;
+    height:40px;
+
+}
+.notes .github-button
+{
+    @include rubik(700);
+    font-size:1em;
+    color:$github-dark;
+    background-color:$github-light;
+}
+

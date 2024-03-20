@@ -5,9 +5,14 @@
     padding:0px;
 }
 
-p , h1, h2
+p , h1, h2, textarea, li
 {
-    @include rubik(500);
+    @include rubik(400);
+}
+ul
+{
+    padding-left:40px;
+
 }
 
 body
@@ -18,4 +23,35 @@ body
 button
 {
     border-width:0;
+    cursor:pointer;
+}
+
+textarea, input
+{
+    color:$grayish-blue;
+    font-size:1em;
+}
+textarea
+{
+    box-sizing:border-box;
+    padding-left:10px;
+    padding-top:10px;
+    resize: none;
+}
+input
+{
+    box-sizing:border-box;
+    padding-left:10px;
+}
+textarea:focus, input:focus
+{
+    outline: none !important;
+    border-color: $dark-blue !important;
+}
+
+
+//States
+button:hover
+{
+    opacity:0.5;
 }
