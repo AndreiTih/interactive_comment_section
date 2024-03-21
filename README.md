@@ -14,11 +14,11 @@ An implementation of a comment section design provided by [frontendmentor](https
 - The replies at the moment are normal comments with a span containing @[username] referencing the replied to comment. Ideally they would be placed under the comment that is being replied to and indented a bit.
 - Refactoring the backend-side to use a framework such as express or fastify instead of the http node module.
 
-### Running the code
+# Running the code
 
 Run the command ```node server.js``` in the root of this repo to start the server.
 
-### Database setup
+## Database setup
 Platform: Windows
 
 I'm using MySQL Community Server - GPL, version 8.0.36.
@@ -27,7 +27,7 @@ server.js will assume this computer has a MySql server running for user = "root"
 
 These details can be changed in db_config.json.
 
-### Installing MySql
+## Installing MySql
 
 If you're on windows, download the installer from: https://dev.mysql.com/downloads/installer/ and follow the instructions provided.
 
