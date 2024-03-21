@@ -50,7 +50,11 @@ function createReplyHandler() {
             // of the comment that is being replied to
             reply_element.addEventListener('submit', function(event) {
                 event.preventDefault();
-                console.log('Form submitted! with reply_id value: ' + comment_element.dataset.id);
+                if(reply_element.elements['comment_content'].value == "")
+                {
+                    window.alert("You can't send an empty comment.");
+                    return;
+                }
                 const hidden_replied_to_comment_id_element = this.querySelector('[name="replied_to_comment_id"]');
                 hidden_replied_to_comment_id_element.value = comment_element.dataset.id;
                 reply_element.submit();
@@ -91,6 +95,11 @@ function createEditHandler() {
             // of the comment that is being replied to
             edit_element.addEventListener('submit', function(event) {
                 event.preventDefault();
+                if(edit_element.elements['comment_content'].value == "")
+                {
+                    window.alert("You can't send an empty comment.");
+                    return;
+                }
                 const hidden_edited_comment_id_element = this.querySelector('[name="edited_comment_id"]');
                 hidden_edited_comment_id_element.value = comment_element.dataset.id;
                 edit_element.submit();
@@ -135,22 +144,38 @@ async function logoutHandler()
     window.location.href = window.location.origin + "/";
 }
 
-// A few media breakpoints that change the DOM.
 document.addEventListener('DOMContentLoaded', function() {
     const login_form = document.querySelector('.form-login');
     const main_content_div = document.getElementById('main-content');
     const aside_content_div = document.getElementById('aside-content');
 
+    function handleMobileView() {
+        main_content_div.appendChild(login_form);
+        console.log("Passed mobile breakpoint");
+    }
+    function handleDesktopView() {
+        aside_content_div.appendChild(login_form);
+        console.log("Passed desktop breakpoint");
+    }
+
+    // Initial check
+    if (window.matchMedia("(max-width: 500px)").matches) 
+        handleMobileView();
+    else 
+        handleDesktopView();
+
+    // Media breakpoints that change the DOM.
     window.matchMedia('(max-width: 500px)').addListener((e)=>{
         if (e.matches)
-            main_content_div.appendChild(login_form);
+            handleMobileView();
     });
     window.matchMedia('(min-width: 500px)').addListener((e)=>{
         if (e.matches)
-            aside_content_div.appendChild(login_form);
+            handleDesktopView();
     });
 
     // Attaching callbacks 
+
     // Other's comment
     // Reply button
     let elements;
@@ -158,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener('click', createReplyHandler());
     }
+
     // Your comment
     // Edit button
     elements = document.getElementsByClassName('icon-text-edit');
@@ -181,15 +207,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const cookies = parseCookies(document.cookie);
         if(cookies.username == undefined)
         {
-            //Here we add the logic that says you can't post a comment without being logged in.
             window.alert("You can't post a comment without being logged in.");
+            return;
+        }
+        if(comment_form_element.elements['comment_content'].value == "")
+        {
+            window.alert("You can't send an empty comment.");
             return;
         }
         comment_form_element.submit();
     });
-
-    
 });
+
+
+
+
 
 
 

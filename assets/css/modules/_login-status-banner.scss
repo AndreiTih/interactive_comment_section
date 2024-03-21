@@ -2,6 +2,7 @@
 {
     position:sticky;
     top:0px;
+    z-index:$z-topmost;
 
     background-color: $light-gray;
     border-bottom-left-radius:10px;

@@ -19,6 +19,9 @@ $white: hsl(0, 0%, 100%);
 $github-dark: #24292e;
 $github-light: #fafbfc;
 
+/*Z-index layers*/
+$z-topmost : 10;
+
 /* Family: [Rubik](https://fonts.google.com/specimen/Rubik) */
 @mixin rubik($weight)
 {

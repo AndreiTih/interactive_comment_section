@@ -1,29 +1,47 @@
 .notes
 {
-    background-color:white;
-    height:100%;
+    width:424px;
+    height:490px;
     max-height:800px;
+    height:100%;
 
+    background-color:white;
     border-radius:10px;
+
 }
+.notes-content-container
+{
+    padding-left:15px;
+}
+
 
 .notes-banner
 {
     display:flex;
     justify-content:center;
     align-items:center;
+    width:100%;
+    height:40px;
+    margin-bottom:30px;
+
     background-color:$github-light;
     border-top-left-radius:10px;
     border-top-right-radius:10px;
-    width:100%;
-    height:40px;
 
 }
-.notes .github-button
+
+.notes .github-link
 {
     @include rubik(700);
     font-size:1em;
     color:$github-dark;
     background-color:$github-light;
+    text-decoration:none;
+}
+
+.notes .github-link:hover
+{
+    opacity:0.5;
+
 }
 
