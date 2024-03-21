@@ -13,7 +13,7 @@ An implementation of a comment section design provided by [frontendmentor](https
 - The upvote functionality.
 - The replies at the moment are normal comments with a span containing @[username] referencing the replied to comment. Ideally they would be placed under the comment that is being replied to and indented a bit.
 - Refactoring the backend-side to use a framework such as express or fastify instead of the http node module.
-- There's this odd bug when I view the website on safari on my iphone where some svg icons don't get loaded. I can't replicate this issue on an iphone emulator such as https://appetize.io/.
+- On my phone the website does not load correctly. svg icons don't get loaded and logging in causes the css to not get loaded. I could not replicate this on my friend's iphone or on https://appetize.io/. I'd need to learn how to set up my environment to debug these issues.
 
 # Running the code
 
