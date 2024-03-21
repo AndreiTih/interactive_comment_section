@@ -1,11 +1,18 @@
-### Interactive comment section
+# Interactive comment section
+
 An implementation of a comment section design provided by [frontendmentor](https://frontendmentor.io).
 
-The backend is written using node.js.
+## Technologies
 
-### Left to implement
+1. Built with [node.js]([http://jekyllrb.com/](https://nodejs.org/en)).
+1. Hosted on [Hostinger]([https://pages.github.com/](https://www.hostinger.co.uk/)). I'm using their KVM1 hosting solution, where I deployed the code using [pm2](https://pm2.keymetrics.io/) and [mysql](https://dev.mysql.com/downloads/installer/) for the database.
+1. The specific design used is the [interactive-comments-section](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9) challenge from [frontendmentor](https://frontendmentor.io).
+1. I used [sass](https://sass-lang.com/) and
+   [Google Fonts](https://www.google.com/fonts) for styling.
+## Left to implement
 - The upvote functionality.
-- Refactoring the backend-side to use a framework such as express or fastify instead of the http module.
+- The replies at the moment are normal comments with a span containing @[username] referencing the replied to comment. Ideally they would be placed under the comment that is being replied to and indented a bit.
+- Refactoring the backend-side to use a framework such as express or fastify instead of the http node module.
 
 ### Running the code
 
