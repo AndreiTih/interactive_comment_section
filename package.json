@@ -1,6 +1,7 @@
 {
     "type": "module",
     "dependencies": {
+        "fastify": "^4.26.2",
         "handlebars": "^4.7.8",
         "mysql2": "^3.9.2"
     }
