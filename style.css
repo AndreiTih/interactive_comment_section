@@ -376,7 +376,8 @@ to make tiny adjustments to alignments and such.
   border-radius: 10px; }
 
 .notes-content-container {
-  padding-left: 15px; }
+  padding-left: 15px;
+  padding-right: 10px; }
 
 .notes-banner {
   display: flex;
