@@ -7,7 +7,6 @@
 
     background-color:white;
     border-radius:10px;
-
 }
 .notes-content-container
 {
@@ -28,10 +27,10 @@
     background-color:$github-light;
     border-top-left-radius:10px;
     border-top-right-radius:10px;
-
+    text-decoration:none;
 }
 
-.notes .github-link
+.notes .github-link-text
 {
     @include rubik(700);
     font-size:1em;
@@ -40,9 +39,8 @@
     text-decoration:none;
 }
 
-.notes .github-link:hover
+.notes .notes-banner:hover
 {
     opacity:0.5;
-
 }
 

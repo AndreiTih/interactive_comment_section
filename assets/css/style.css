@@ -388,9 +388,10 @@ to make tiny adjustments to alignments and such.
   margin-bottom: 30px;
   background-color: #fafbfc;
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px; }
+  border-top-right-radius: 10px;
+  text-decoration: none; }
 
-.notes .github-link {
+.notes .github-link-text {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -400,7 +401,7 @@ to make tiny adjustments to alignments and such.
   background-color: #fafbfc;
   text-decoration: none; }
 
-.notes .github-link:hover {
+.notes .notes-banner:hover {
   opacity: 0.5; }
 
 .comments-container {
