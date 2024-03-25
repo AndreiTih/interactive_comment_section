@@ -22,11 +22,11 @@ import commentSectionRoutes from './src/routes/comment_section_routes.mjs';
 
 fastify.register(commentSectionRoutes);
 
-
 // CONFIG
 const PORT = 80;
+const ADDRESS = '0.0.0.0' 
 
-fastify.listen(PORT, () => {
+fastify.listen(PORT, ADDRESS, () => {
         console.log(`Server listening on port ${PORT}`);
 });
 
