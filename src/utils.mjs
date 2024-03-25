@@ -28,31 +28,8 @@ export const constants ={
     },
 };
 
-
 export const utils =
     {
-        // Takes a string of the "attribute=value" format and returns an object {attribute:value} where value is always a string.
-        parseHTTPAttributeValueToObject(HTTP_string)
-        {
-            let parsed_data = {};
-            const [key, value] = HTTP_string.split('=');
-            parsed_data[key] = value.replace(/\+/g, ' ');
-            return parsed_data;
-        },
-        parseCookies(cookieHeader) 
-        {
-            const cookies = {};
-
-            if (cookieHeader) {
-                cookieHeader.split(';').forEach(cookie => {
-                    const parts = cookie.split('=');
-                    const name = parts.shift().trim();
-                    const value = decodeURIComponent(parts).trim();
-                    cookies[name] = value;
-                });
-            }
-            return cookies;
-        },
         sqlTimestampToString(timestamp) {
             const now = new Date();
             const then = new Date(timestamp);
