@@ -14,6 +14,7 @@ An implementation of a comment section design provided by [frontendmentor](https
 - The replies at the moment are normal comments with a span containing @[username] referencing the replied to comment. Ideally they would be placed under the comment that is being replied to and indented a bit.
 - On my phone the website does not load correctly. svg icons don't get loaded and logging in causes the css to not get loaded. I could not replicate this on my friend's iphone or on https://appetize.io/.
 - Handling niche situations such as: Deleting a comment that has replies pointing to it.
+- Validate inputs server side. Currently they're only validated client-side. At the least guard against SQL injection.
 - Refactoring the code to use a modern frontend framework such as React for client-side rendering instead of rendering server-side with handlebars.
 - ~~Refactoring the backend-side to use a framework such as express or fastify instead of the http node module.~~
 # Running the code
